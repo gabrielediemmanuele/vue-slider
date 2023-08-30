@@ -36,6 +36,7 @@ createApp({
     return {
       slides,
       activeSlide: 0,
+      autoplay: false,
     };
   },
   methods: {
@@ -58,11 +59,24 @@ createApp({
       this.activeSlide = index;
       console.log(index);
     },
+
+    autoPlay() {
+      if (!this.autoplay) {
+        this.autoplay = setInterva(() => {
+          this.goNext();
+        }, 3000);
+      }
+    },
+
+    autoStop() {
+      if (this.autoplay) {
+        clearInterval(this.autoplay);
+        this.autoplay = false;
+      }
+    },
   },
 
   created() {
-    setInterval(() => {
-      this.goNext();
-    }, 3000);
+    this.autoPlay();
   },
 }).mount("#app");
