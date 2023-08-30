@@ -27,7 +27,7 @@ const slides = [
   },
 ];
 
-console.log(slides);
+/* console.log(slides); */
 
 //* VUE JS
 const { createApp } = Vue;
@@ -40,10 +40,23 @@ createApp({
   },
   methods: {
     goNext() {
-      this.activeSlide++;
+      if (this.activeSlide < this.slides.length - 1) {
+        this.activeSlide++;
+      } else {
+        this.activeSlide = 0;
+      }
     },
     goPrev() {
-      this.activeSlide--;
+      if (this.activeSlide > 0) {
+        this.activeSlide--;
+      } else {
+        this.activeSlide = this.slides.length - 1;
+      }
+    },
+
+    clickThumb(index) {
+      this.activeSlide = index;
+      console.log(index);
     },
   },
 }).mount("#app");
