@@ -59,4 +59,10 @@ createApp({
       console.log(index);
     },
   },
+
+  created() {
+    setInterval(() => {
+      this.goNext();
+    }, 3000);
+  },
 }).mount("#app");
