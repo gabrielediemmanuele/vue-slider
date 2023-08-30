@@ -28,22 +28,20 @@
     <div id="app">
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
-          <div
-            class="item"
-            @mouseOver="stopAutoplay()"
-            @mouseLeave="setAutoplay()"
-          >
+          <!-- Front Slider -->
+          <div class="item" @mouseOver="autoStop()" @mouseLeave="autoPlay()">
             <img :src="slides[activeSlide].image" alt="Spiderman" />
             <div class="text">
               <h3>{{ slides[activeSlide].title }}</h3>
               <p>{{ slides[activeSlide].text }}</p>
             </div>
           </div>
-
+          <!-- Thumbnails -->
           <div class="thumbs">
+            <!-- Arrows -->
             <div class="prev" @click="goPrev()"></div>
             <div class="next" @click="goNext()"></div>
-
+            <!-- Thumbs -->
             <div
               v-for="(slide, index) in slides"
               @click="clickThumb(index)"

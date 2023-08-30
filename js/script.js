@@ -13,7 +13,7 @@ const slides = [
   {
     image: "img/03.webp",
     title: "Fortnite",
-    text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+    text: "Grab all of your friends and drop into Epic Games Fortnite a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
   },
   {
     image: "img/04.webp",
@@ -39,6 +39,7 @@ createApp({
       autoplay: false,
     };
   },
+  //*Methods
   methods: {
     goNext() {
       if (this.activeSlide < this.slides.length - 1) {
@@ -62,7 +63,7 @@ createApp({
 
     autoPlay() {
       if (!this.autoplay) {
-        this.autoplay = setInterva(() => {
+        this.autoplay = setInterval(() => {
           this.goNext();
         }, 3000);
       }
